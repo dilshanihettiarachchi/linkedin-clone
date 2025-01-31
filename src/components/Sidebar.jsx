@@ -1,4 +1,8 @@
 import { Avatar } from '@mui/material';
+import SidebarOption from './SidebarOption';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import GroupsIcon from '@mui/icons-material/Groups';
+import EventIcon from '@mui/icons-material/Event';
 import '../styles/Sidebar.css';
 
 export default function Sidebar() {
@@ -26,7 +30,9 @@ export default function Sidebar() {
         </div>
       </div>
       <div className="sidebar-bottom">
-        
+        <SidebarOption Icon={BookmarkIcon} title="Saved Items" />
+        <SidebarOption Icon={GroupsIcon} title="Groups" />
+        <SidebarOption Icon={EventIcon} title="Events" />
       </div>
     </div>
   )
