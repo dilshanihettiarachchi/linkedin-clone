@@ -1,0 +1,24 @@
+.header-option {
+  align-items: center;
+  color: #808080;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  position: relative;
+}
+
+.header-option:hover {
+  color: #000000;
+}
+
+.header-option .header-option-icon {
+  height: 25px;
+  object-fit: contain;
+  width: 25px;
+}
+
+.header-option-title {
+  font-size: 0.75rem;
+  font-weight: 400;
+}

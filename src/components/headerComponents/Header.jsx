@@ -1,9 +1,16 @@
 import SearchIcon from '@mui/icons-material/Search';
+import HeaderOption from './HeaderOption';
+import HomeIcon from '@mui/icons-material/Home';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import TextsmsIcon from '@mui/icons-material/Textsms';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Avatar } from '@mui/material';
 import '../../styles/headerStyles/Header.css';
 
 export default function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header-content">
         <div className="header-left">
           <img 
@@ -19,9 +26,17 @@ export default function Header() {
           </div>
         </div>
         <div className="header-right">
-          
+          <HeaderOption Icon={HomeIcon} title="Home" />
+          <HeaderOption Icon={SupervisorAccountIcon} title="My Network" />
+          <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
+          <HeaderOption Icon={TextsmsIcon} title="Messaging" />
+          <HeaderOption Icon={NotificationsIcon} title="Notifications" />
+          <div className="header-profile">
+           <Avatar className="header-profile-avatar" />
+           <h3 className="header-profile-title">Me</h3>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
