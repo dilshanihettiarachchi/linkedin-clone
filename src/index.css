@@ -14,3 +14,20 @@ input,
 button {
   font-family: inherit;
 }
+
+.app {
+  align-items: center;
+  background-color: #f4f2ee;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.app-body {
+  display: grid;
+  grid-template-columns: 225px 555px 300px;
+  margin-top: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
+  max-width: 1200px;
+}

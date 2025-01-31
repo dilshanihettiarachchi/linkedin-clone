@@ -1,4 +1,4 @@
-import '../../styles/headerStyles/HeaderOption.css';
+import '../styles/HeaderOption.css';
 
 export default function HeaderOption({ Icon, title }) {
   return (

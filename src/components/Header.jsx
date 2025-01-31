@@ -6,7 +6,7 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import TextsmsIcon from '@mui/icons-material/Textsms';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Avatar } from '@mui/material';
-import '../../styles/headerStyles/Header.css';
+import '../styles/Header.css';
 
 export default function Header() {
   return (
