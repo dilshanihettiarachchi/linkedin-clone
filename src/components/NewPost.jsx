@@ -5,12 +5,41 @@ import ImageIcon from '@mui/icons-material/Image';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CelebrationIcon from '@mui/icons-material/Celebration';
 import AddIcon from '@mui/icons-material/Add';
+import { useState } from 'react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from "../firebase"; 
 import '../styles/NewPost.css';
 
-export default function NewPost({ input, setInput, open, onClose }) {
-  
+export default function NewPost({ open, onClose }) {
+  const [input, setInput] = useState("");
+
+  //add posts to the firebase
+  const sendPost = async (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+
+    const newPost = {
+      name: "Dilshani Hettiarachchi",
+      description: "Software Engineer",
+      message: input,
+      photoURL: "",
+      timestamp: serverTimestamp(),
+    };
+
+    console.log("Sending post", newPost);
+
+
+    try {
+      await addDoc(collection(db, "posts"), newPost);
+      setInput("");
+      if (onClose) onClose();
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
   return (
-    <Modal className="new-post-modal" open={open}>
+    <Modal className="new-post-modal" open={open} onClose={onClose}>
       <Box className="new-post-box">
         <form>
           <div className="new-post-header">
@@ -20,6 +49,7 @@ export default function NewPost({ input, setInput, open, onClose }) {
             </div>
             <button 
               className="new-post-close-button"
+              type="button"
               onClick={onClose}
             >
               <CloseIcon />
@@ -28,6 +58,7 @@ export default function NewPost({ input, setInput, open, onClose }) {
           <div className="new-post-body">
             <textarea
               placeholder="What do you want to talk about?"
+              aria-label="write your message"
               value={input}
               onChange={(e) => setInput(e.target.value)} 
             />
@@ -41,7 +72,8 @@ export default function NewPost({ input, setInput, open, onClose }) {
           <div className="new-post-footer">
             <button 
               className="new-post-submit-button"
-              type="submit"
+              disabled={!input.trim()}
+              onClick={(e) => sendPost(e)}
             >
               Post
             </button>

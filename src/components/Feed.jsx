@@ -4,12 +4,31 @@ import ImageIcon from '@mui/icons-material/Image';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ArticleIcon from '@mui/icons-material/Article';
 import NewPost from './NewPost';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Post from './Post';
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
 import '../styles/Feed.css';
 
 export default function Feed() {
-  const [input, setInput] = useState("");
   const [openNewPost, setOpenNewPost] = useState(false);
+  const [posts, setPosts] = useState([]);
+
+  //get posts from firebase
+  useEffect(() => {
+    const postsCollection = collection(db, "posts");
+    const postQuery = query(postsCollection, orderBy("timestamp", "desc")) //oganize post according to timestamp
+
+    const unsubscribe = onSnapshot(postQuery, (snapshot) => {
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          post: doc.data(),
+        }))
+      );
+    });
+    return () => unsubscribe();
+  }, []);
   
   return (
     <div className="feed">
@@ -41,11 +60,20 @@ export default function Feed() {
           />
         </div>
       </div>
+      {posts.map(({ id, post: {name, description, message, photoURL }}) => {
+        return (
+          <Post 
+            key={id}
+            name={name}
+            description={description}
+            message={message}
+            photoURL={photoURL}
+          />
+        );
+      })}
       <NewPost
-        input={input}
-        setInput={setInput}
         open={openNewPost}
-        onclose={() => setOpenNewPost(false)}
+        onClose={() => setOpenNewPost(false)}
       />
     </div>
   )
