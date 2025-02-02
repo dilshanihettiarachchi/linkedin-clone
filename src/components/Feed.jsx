@@ -3,15 +3,23 @@ import InputOption from './InputOption';
 import ImageIcon from '@mui/icons-material/Image';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ArticleIcon from '@mui/icons-material/Article';
+import NewPost from './NewPost';
+import { useState } from 'react';
 import '../styles/Feed.css';
 
 export default function Feed() {
+  const [input, setInput] = useState("");
+  const [openNewPost, setOpenNewPost] = useState(false);
+  
   return (
     <div className="feed">
       <div className="feed-input-container">
         <div className="feed-input-content">
           <Avatar src="" className="feed-avatar" />
-          <button className="feed-input-button">
+          <button 
+            className="feed-input-button" 
+            onClick={() => setOpenNewPost(true)}
+          >
             Start a post, try writing with AI
           </button>
         </div>
@@ -33,6 +41,12 @@ export default function Feed() {
           />
         </div>
       </div>
+      <NewPost
+        input={input}
+        setInput={setInput}
+        open={openNewPost}
+        onclose={() => setOpenNewPost(false)}
+      />
     </div>
   )
 }
