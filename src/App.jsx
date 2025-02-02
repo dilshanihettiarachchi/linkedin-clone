@@ -1,6 +1,7 @@
 import Feed from "./components/Feed";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import Widget from "./components/Widget";
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <div className="app-body">
         <Sidebar />
         <Feed />
+        <Widget />
       </div>
     </div>
   )
