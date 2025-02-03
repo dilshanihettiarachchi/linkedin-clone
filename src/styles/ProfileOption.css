@@ -1,0 +1,22 @@
+.profile-option  h2 {
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.profile-option h4 {
+  color: #808080;
+  font-size: 0.87rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.profile-option h4:hover {
+  text-decoration: underline;
+}

@@ -6,9 +6,13 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import TextsmsIcon from '@mui/icons-material/Textsms';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Avatar } from '@mui/material';
+import ProfileDropdown from './ProfileDropdown';
 import '../styles/Header.css';
+import { useState } from 'react';
 
 export default function Header() {
+  const [openDropdown, setOpenDropdown] = useState(false);
+
   return (
     <header className="header">
       <div className="header-content">
@@ -32,8 +36,12 @@ export default function Header() {
           <HeaderOption Icon={TextsmsIcon} title="Messaging" />
           <HeaderOption Icon={NotificationsIcon} title="Notifications" />
           <div className="header-profile">
-           <Avatar className="header-profile-avatar" />
-           <h3 className="header-profile-title">Me</h3>
+            <Avatar className="header-profile-avatar"  onClick={() => setOpenDropdown(true)} />
+            <h3 className="header-profile-title">Me</h3>
+            <ProfileDropdown 
+              open={openDropdown}
+              onClose={() => setOpenDropdown(false)}
+            />
           </div>
         </div>
       </div>
