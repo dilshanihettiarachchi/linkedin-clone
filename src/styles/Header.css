@@ -68,6 +68,7 @@
 }
 
 .header .header-profile-avatar {
+  font-size: 0.87rem;
   height: 25px;
   object-fit: contain;
   width: 25px;

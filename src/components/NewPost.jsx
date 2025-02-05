@@ -8,10 +8,13 @@ import AddIcon from '@mui/icons-material/Add';
 import { useState } from 'react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from "../firebase"; 
+import { useSelector } from 'react-redux';
+import { selectUser } from '../redux/userSlice';
 import '../styles/NewPost.css';
 
 export default function NewPost({ open, onClose }) {
   const [input, setInput] = useState("");
+  const user = useSelector(selectUser);
 
   //add posts to the firebase
   const sendPost = async (e) => {
@@ -19,15 +22,12 @@ export default function NewPost({ open, onClose }) {
     if (!input.trim()) return;
 
     const newPost = {
-      name: "Dilshani Hettiarachchi",
-      description: "Software Engineer",
+      name: user.displayName,
+      currentPosition: user.currentPosition,
       message: input,
-      photoURL: "",
+      photoURL: user.photoURL || "",
       timestamp: serverTimestamp(),
     };
-
-    console.log("Sending post", newPost);
-
 
     try {
       await addDoc(collection(db, "posts"), newPost);
@@ -44,8 +44,8 @@ export default function NewPost({ open, onClose }) {
         <form>
           <div className="new-post-header">
             <div className="new-post-user-info">
-              <Avatar />
-              <h2 className="new-post-user-name">Dilshani Hettiarachchi</h2>
+              <Avatar src={user?.photoURL}>{user?.displayName[0]}</Avatar>
+              <h2 className="new-post-user-name">{user?.displayName}</h2>
             </div>
             <button 
               className="new-post-close-button"

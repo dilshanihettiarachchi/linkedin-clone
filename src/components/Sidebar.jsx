@@ -3,9 +3,13 @@ import SidebarOption from './SidebarOption';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import GroupsIcon from '@mui/icons-material/Groups';
 import EventIcon from '@mui/icons-material/Event';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../redux/userSlice';
 import '../styles/Sidebar.css';
 
 export default function Sidebar() {
+  const user = useSelector(selectUser);
+
   return (
     <div className="sidebar">
       <div className="sidebar-top">
@@ -14,9 +18,11 @@ export default function Sidebar() {
           alt="Cover image" 
         />
         <div className="sidebar-user-details">
-          <Avatar className="sidebar-avatar" />
-          <h2>Dilshani Hettiarachchi</h2>
-          <h4>Software Engineer</h4>
+          <Avatar className="sidebar-avatar" src={user?.photoURL}>
+            {user?.displayName[0]}
+          </Avatar>
+          <h2>{user.displayName}</h2>
+          <h4>{user.currentPosition}</h4>
         </div> 
       </div>
       <div className="sidebar-stats">

@@ -8,11 +8,14 @@ import { useState, useEffect } from 'react';
 import Post from './Post';
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../redux/userSlice';
 import '../styles/Feed.css';
 
 export default function Feed() {
   const [openNewPost, setOpenNewPost] = useState(false);
   const [posts, setPosts] = useState([]);
+  const user = useSelector(selectUser);
 
   //get posts from firebase
   useEffect(() => {
@@ -34,7 +37,9 @@ export default function Feed() {
     <div className="feed">
       <div className="feed-input-container">
         <div className="feed-input-content">
-          <Avatar src="" className="feed-avatar" />
+          <Avatar src={user?.photoURL} className="feed-avatar">
+            {user.displayName[0]}
+          </Avatar>
           <button 
             className="feed-input-button" 
             onClick={() => setOpenNewPost(true)}
@@ -60,12 +65,12 @@ export default function Feed() {
           />
         </div>
       </div>
-      {posts.map(({ id, post: {name, description, message, photoURL }}) => {
+      {posts.map(({ id, post: {name, currentPosition, message, photoURL }}) => {
         return (
           <Post 
             key={id}
             name={name}
-            description={description}
+            currentPosition={currentPosition}
             message={message}
             photoURL={photoURL}
           />

@@ -6,14 +6,14 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import '../styles/Post.css';
 
-export default function Post({ name, description, message, photoURL }) {
+export default function Post({ name, currentPosition, message, photoURL }) {
   return (
     <div className="post">
       <div className="post-header">
         <Avatar src={photoURL} />
         <div className="post-info">
           <h2>{name}</h2>
-          <p>{description}</p>
+          <p>{currentPosition}</p>
         </div>
       </div>
       <div className="post-body">

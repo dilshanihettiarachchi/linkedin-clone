@@ -7,11 +7,14 @@ import TextsmsIcon from '@mui/icons-material/Textsms';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Avatar } from '@mui/material';
 import ProfileDropdown from './ProfileDropdown';
-import '../styles/Header.css';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../redux/userSlice';
+import '../styles/Header.css';
 
 export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(false);
+  const user = useSelector(selectUser);
 
   return (
     <header className="header">
@@ -36,7 +39,9 @@ export default function Header() {
           <HeaderOption Icon={TextsmsIcon} title="Messaging" />
           <HeaderOption Icon={NotificationsIcon} title="Notifications" />
           <div className="header-profile">
-            <Avatar className="header-profile-avatar"  onClick={() => setOpenDropdown(true)} />
+            <Avatar className="header-profile-avatar" src={user?.photoURL} onClick={() => setOpenDropdown(true)}>
+              {user?.displayName[0]}
+            </Avatar>
             <h3 className="header-profile-title">Me</h3>
             <ProfileDropdown 
               open={openDropdown}

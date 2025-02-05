@@ -36,8 +36,6 @@ export default function SignIn() {
       } else {
         alert("user is not exist");
       }
-  
-      
 
     } catch (error) {
       alert(error.message);
