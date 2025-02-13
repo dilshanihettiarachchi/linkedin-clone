@@ -1,8 +1,33 @@
 .home {
   display: grid;
-  grid-template-columns: 225px 555px 300px;
+  gap: 16px;
+  grid-template-columns: 0.5fr 2fr 1fr;
   margin-top: 24px;
   margin-left: 20px;
   margin-right: 20px;
   max-width: 1200px;
+}
+
+@media only screen and (max-width: 992px) {
+ .home {
+  grid-template-columns: 0.5fr 2fr;
+  margin-left: 0;
+  margin-right: 0;
+ }
+
+ .home-widget {
+  display: none;
+ } 
+}
+
+@media only screen and (max-width: 576px) {
+  .home {
+    grid-template-columns: 2fr;
+    margin-left: 0;
+    margin-right: 0;
+   }
+
+   .home-widget {
+    display: none;
+   }
 }

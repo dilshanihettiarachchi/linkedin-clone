@@ -25,7 +25,7 @@ export default function Header() {
             alt="Linkedin logo" 
           />
           <div className="header-search">
-            <SearchIcon />
+            <SearchIcon className="header-search-icon" />
             <input 
               type="search"
               placeholder="Search" 

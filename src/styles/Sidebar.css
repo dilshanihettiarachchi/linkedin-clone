@@ -1,6 +1,7 @@
 .sidebar {
   border-radius: 10px;
   height: fit-content;
+  min-width: 250px;
   position: sticky;
   text-align: center;
 }
@@ -108,4 +109,18 @@
   margin-top: 10px;
   padding: 10px;
   text-align: left;
+}
+
+@media only screen and (max-width: 576px) {
+  .sidebar-top {
+    padding-bottom: 0;
+  }
+
+  .sidebar-stats {
+    display: none;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
 }

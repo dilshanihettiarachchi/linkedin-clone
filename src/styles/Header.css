@@ -3,6 +3,7 @@
   background-color: #ffffff;
   border-bottom: 0.1px solid #d3d3d3;
   display: flex;
+  justify-content: space-between;
   padding: 10px 24px;
   position: sticky;
   top: 0;
@@ -14,7 +15,8 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: 0 95px;
+  margin: auto;
+  max-width: 1200px;
   width: 100%;
 }
 
@@ -77,4 +79,39 @@
 .header-profile-title {
   font-size: 0.75rem;
   font-weight: 400;
+}
+
+@media only screen and (max-width: 992px) {
+  .header-search {
+    width: 180px;
+  }
+
+  .header-profile-title {
+    display: none;
+  }
+}
+ 
+@media only screen and (max-width: 576px) {
+  .header-search {
+    background: none;
+    width: auto;
+  }
+
+  .header-search-icon {
+    height: 25px;
+    object-fit: contain;
+    width: 25px;
+  }
+
+  .header-search-icon:hover {
+    color: #000000;
+  }
+
+  .header-search input {
+    display: none;
+  }
+
+  .header-profile-title {
+    display: none;
+  }
 }
