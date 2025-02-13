@@ -1,9 +1,11 @@
 .sign-in {
+  align-items: center;
   display: grid;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   place-items: center;
 }
 
