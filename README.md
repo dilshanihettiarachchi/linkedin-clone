@@ -33,3 +33,8 @@
  **To deploy on Firebase, run**:
 - npm run build
 - firebase deploy
+
+---
+
+## 🚀 Live Demo
+[Live Site] (https://linkedin-clone-b495d.web.app)
