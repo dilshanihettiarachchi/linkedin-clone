@@ -40,7 +40,6 @@ function App() {
           <Routes>
             {!user ? (
               <>
-                <Route path="/" element={ <SignIn /> } />
                 <Route path="/login" element={ <SignIn /> } />
                 <Route path="/register" element={ <SignUp /> } />
               </>

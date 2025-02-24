@@ -10,6 +10,7 @@ import ProfileDropdown from './ProfileDropdown';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/userSlice';
+import linkedinLogo from '../images/linkedinLogo.png';
 import '../styles/Header.css';
 
 export default function Header() {
@@ -21,7 +22,7 @@ export default function Header() {
       <div className="header-content">
         <div className="header-left">
           <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png?20140125013055" 
+            src={linkedinLogo} 
             alt="Linkedin logo" 
           />
           <div className="header-search">

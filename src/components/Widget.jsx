@@ -1,6 +1,10 @@
 import InfoIcon from '@mui/icons-material/Info';
 import Suggetion from './Suggestion';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import googleLogo from '../images/google.png';
+import awsLogo from '../images/aws.png';
+import microsoftLogo from '../images/microsoft.png';
+import w3schoolLogo from '../images/w3school.png';
 import '../styles/Widget.css';
 
 export default function Widget() {
@@ -13,22 +17,22 @@ export default function Widget() {
       <Suggetion 
         name="Google" 
         description="Company &#8226; Software Development" 
-        image="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" 
+        image={googleLogo} 
       />
       <Suggetion 
         name="Amozon Web Service (AWS)" 
         description="Company &#8226; IT Services" 
-        image="https://cdn.freebiesupply.com/logos/large/2x/aws-logo-logo-png-transparent.png" 
+        image={awsLogo}
       />
       <Suggetion 
         name="Microsoft" 
         description="Company &#8226; Software Development" 
-        image="https://pngimg.com/uploads/microsoft/microsoft_PNG5.png" 
+        image={microsoftLogo}
       />
       <Suggetion 
         name="W3School.com" 
         description="Company &#8226; Software Development" 
-        image="https://avatars.githubusercontent.com/u/77673807?v=4" 
+        image={w3schoolLogo} 
       />
       <button className="widget-view-all-button">View all recommendations <ArrowForwardIcon className="widgets-view-all-button-icon" /></button>
     </div>

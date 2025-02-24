@@ -5,6 +5,7 @@ import { auth, db } from '../firebase';
 import { login } from '../redux/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
+import linkedinLogo from '../images/linkedin.png';
 import '../styles/SignIn.css';
 
 export default function SignIn() {
@@ -44,7 +45,7 @@ export default function SignIn() {
 
   return (
     <div className="sign-in">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/291px-LinkedIn_Logo.svg.png?20170711102837" alt="Logo" />
+      <img src={linkedinLogo} alt="Logo" />
       <form onSubmit={signIn}>
         <input 
           type="email"
