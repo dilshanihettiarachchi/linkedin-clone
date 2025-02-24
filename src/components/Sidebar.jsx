@@ -5,6 +5,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import EventIcon from '@mui/icons-material/Event';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/userSlice';
+import coverImage from '../images/coverImage.jpg';
 import '../styles/Sidebar.css';
 
 export default function Sidebar() {
@@ -14,7 +15,7 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebar-top">
         <img 
-          src="https://images.pexels.com/photos/6113665/pexels-photo-6113665.jpeg?auto=compress&cs=tinysrgb&w=600" 
+          src={coverImage} 
           alt="Cover image" 
         />
         <div className="sidebar-user-details">
